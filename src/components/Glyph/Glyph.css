@@ -1,0 +1,17 @@
+.glyph {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  overflow: visible;
+}
+
+.glyph--primary { color: var(--primary); }
+.glyph--secondary { color: var(--secondary); }
+.glyph--highlight { color: var(--highlight); }
+.glyph--accent { color: var(--accent); }
+.glyph--background { color: var(--background); }
+.glyph--text { color: var(--text); }
+.glyph--natural1 { color: var(--natural1); }
+.glyph--natural2 { color: var(--natural2); }

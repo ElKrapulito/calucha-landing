@@ -1,0 +1,8 @@
+export { SiteHeader } from './SiteHeader'
+export { Hero } from './Hero'
+export { Services } from './Services'
+export { Process } from './Process'
+export { Work } from './Work'
+export { Manifesto } from './Manifesto'
+export { Contact } from './Contact'
+export { SiteFooter } from './SiteFooter'

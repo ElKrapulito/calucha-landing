@@ -1,0 +1,105 @@
+.contact__grid {
+  display: grid;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.contact__form {
+  display: grid;
+  gap: var(--space-5);
+  --focus-ring: var(--text);
+}
+
+.contact__legend {
+  font-size: var(--fs-sm);
+}
+
+.contact__row {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.contact__submit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.contact__status {
+  flex: 1 1 14rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  color: var(--primary);
+}
+
+.contact__status:empty {
+  display: none;
+}
+
+.contact__aside {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.contact__card {
+  padding: var(--space-5) var(--space-6);
+  color: var(--text);
+  background: var(--highlight);
+  border: var(--line-thick) solid var(--text);
+  border-radius: var(--radius-wobble);
+  box-shadow: var(--shadow-md);
+  --focus-ring: var(--text);
+}
+
+.contact__card--social {
+  background: var(--natural1);
+}
+
+.contact__card-title {
+  font-size: var(--fs-lg);
+  margin-bottom: var(--space-3);
+}
+
+.contact__list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.contact__list a {
+  display: inline-block;
+  padding-block: var(--space-1);
+  font-size: var(--fs-md);
+}
+
+.contact__label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.contact__social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.contact__critters {
+  display: flex;
+  justify-content: space-around;
+  font-size: 4rem;
+}
+
+@media (min-width: 40rem) {
+  .contact__row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 64rem) {
+  .contact__grid {
+    grid-template-columns: 3fr 2fr;
+  }
+}

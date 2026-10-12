@@ -1,0 +1,163 @@
+.hero__grid {
+  display: grid;
+  gap: clamp(var(--space-7), 5vw, var(--space-8));
+  align-items: start;
+}
+
+.hero__band-top {
+  padding-top: var(--space-7);
+  padding-right: clamp(var(--space-8), 18%, 9rem);
+}
+
+.hero__sun {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  font-size: clamp(3.5rem, 9vw, 6rem);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__sun {
+    animation: hero-spin 4.5s var(--ease-out) 1;
+  }
+
+  .hero__condor {
+    animation: hero-glide 2.4s ease-in-out 2;
+  }
+}
+
+.hero__condor {
+  position: absolute;
+  right: clamp(var(--space-5), 12%, 7rem);
+  bottom: var(--space-4);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+.hero__eyebrow {
+  margin-bottom: var(--space-3);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hero__title {
+  font-size: var(--fs-2xl);
+  line-height: 1.02;
+  color: var(--primary);
+  text-shadow: 3px 3px 0 var(--background);
+}
+
+.hero__title-accent {
+  display: block;
+  color: var(--text);
+}
+
+.hero__band-mid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.hero__lead {
+  font-size: var(--fs-md);
+  max-width: 40ch;
+}
+
+.hero__flora {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-4);
+  font-size: 3.25rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.hero__actions > .btn {
+  flex: 1 1 14rem;
+}
+
+.hero__place {
+  margin-top: var(--space-4);
+  font-size: var(--fs-sm);
+}
+
+/* ---------- Side column ---------- */
+.hero__side {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.hero__ticket-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  line-height: 1;
+  color: var(--natural2-ink);
+  transform: rotate(-2deg);
+}
+
+.hero__ticket-text {
+  margin-block: var(--space-3) var(--space-4);
+}
+
+.hero__passes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+}
+
+.hero__pass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 6rem;
+  padding: var(--space-2);
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 0.8rem + 0.6vw, 1.25rem);
+  text-align: center;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--highlight);
+  border: var(--outline);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.hero__pass:hover {
+  transform: translate(-2px, -3px) rotate(-2deg);
+  box-shadow: 5px 6px 0 var(--text);
+}
+
+.hero__pass:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.hero__pass-glyph {
+  font-size: 2.25rem;
+  color: var(--primary);
+}
+
+@media (min-width: 64rem) {
+  .hero__grid {
+    grid-template-columns: 7fr 5fr;
+  }
+
+  .hero__side {
+    padding-top: var(--space-6);
+  }
+}
+
+@keyframes hero-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes hero-glide {
+  0%, 100% { transform: translate(0, 0) rotate(-4deg); }
+  50% { transform: translate(-10px, -8px) rotate(3deg); }
+}

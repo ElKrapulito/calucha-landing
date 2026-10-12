@@ -1,0 +1,12 @@
+.wavy-edge {
+  display: block;
+  width: 100%;
+  height: clamp(18px, 3vw, 36px);
+  margin-top: -1px;
+}
+
+.wavy-edge--flip {
+  transform: scaleY(-1);
+  margin-top: 0;
+  margin-bottom: -1px;
+}

@@ -1,0 +1,74 @@
+.site-footer__garden {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-2);
+  overflow: hidden;
+  padding-inline: var(--space-2);
+  margin-bottom: -6px;
+}
+
+.site-footer__plant {
+  flex-shrink: 0;
+  /* Light outline so dark-green plants read on the green page */
+  filter:
+    drop-shadow(2px 0 0 var(--text))
+    drop-shadow(-2px 0 0 var(--text))
+    drop-shadow(0 -2px 0 var(--text));
+}
+
+.site-footer__plant.glyph--primary {
+  color: var(--accent);
+}
+
+.site-footer__ground {
+  position: relative;
+  padding-block: var(--space-7) var(--space-6);
+  color: var(--text);
+  background: var(--highlight);
+  border-top: var(--line-thick) solid var(--text);
+}
+
+.site-footer__inner {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-4);
+  text-align: center;
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2) var(--space-5);
+}
+
+.site-footer__links li + li::before {
+  content: '//';
+  margin-right: var(--space-5);
+  font-family: var(--font-display);
+}
+
+.site-footer__links a {
+  display: inline-block;
+  padding-block: var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  text-decoration: none;
+}
+
+.site-footer__links a:hover {
+  text-decoration: underline;
+}
+
+.site-footer__credit {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-sm);
+}
+
+.site-footer__mark {
+  font-size: 1.5em;
+  color: var(--primary);
+}

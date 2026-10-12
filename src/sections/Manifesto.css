@@ -1,0 +1,82 @@
+.manifesto__board {
+  overflow: hidden;
+  background: var(--text);
+  border: var(--line-thick) solid var(--text);
+  border-radius: var(--radius-wobble-lg);
+  box-shadow: 10px 10px 0 var(--highlight);
+  color: var(--background);
+}
+
+.manifesto__body {
+  display: grid;
+  gap: var(--space-5);
+  padding: clamp(var(--space-6), 6vw, var(--space-8)) clamp(var(--space-5), 6vw, var(--space-8));
+}
+
+.manifesto__eyebrow {
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  color: var(--highlight);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Jumbled poster lettering, like a hand-painted sign */
+.manifesto__title {
+  font-size: var(--fs-2xl);
+  line-height: 0.95;
+  color: var(--background);
+}
+
+.manifesto__word {
+  display: inline-block;
+}
+
+.manifesto__word--a { font-size: 1.15em; transform: rotate(-3deg); }
+.manifesto__word--b { color: var(--highlight); transform: translateY(0.08em); }
+.manifesto__word--c { color: var(--natural1); transform: rotate(2deg); }
+.manifesto__word--d { font-size: 1.1em; color: var(--accent); }
+
+.manifesto__text {
+  max-width: 60ch;
+  font-size: var(--fs-md);
+}
+
+.manifesto__values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.manifesto__value {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-display);
+  color: var(--text);
+  background: var(--background);
+  border-radius: 999px;
+}
+
+.manifesto__value-glyph {
+  font-size: 1.5em;
+  color: var(--natural2);
+}
+
+.manifesto__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4) var(--space-6);
+  padding: var(--space-5);
+  background: var(--natural2);
+  text-align: center;
+}
+
+.manifesto__footer-text {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  color: var(--color-white);
+}

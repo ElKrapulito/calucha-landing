@@ -1,0 +1,57 @@
+.section-heading {
+  display: grid;
+  gap: var(--space-3);
+  max-width: 46rem;
+  margin-bottom: clamp(var(--space-6), 5vw, var(--space-8));
+}
+
+.section-heading--center {
+  margin-inline: auto;
+  text-align: center;
+  justify-items: center;
+}
+
+.section-heading__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: fit-content;
+  padding: var(--space-1) var(--space-4);
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  letter-spacing: 0.04em;
+  color: var(--text);
+  background: var(--natural1);
+  border: var(--outline);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+  transform: rotate(-2deg);
+}
+
+.section-heading__glyph {
+  font-size: 1.4em;
+}
+
+.section-heading__title {
+  font-size: var(--fs-xl);
+}
+
+/* On the green page: mustard title (4.7:1) with a cartoon drop */
+.section-heading--dark .section-heading__title {
+  color: var(--highlight);
+  text-shadow: 3px 3px 0 var(--text);
+}
+
+.section-heading--dark .section-heading__intro {
+  color: var(--background);
+}
+
+.section-heading--light .section-heading__title,
+.section-heading--light .section-heading__intro {
+  color: var(--text);
+}
+
+.section-heading__intro {
+  font-size: var(--fs-md);
+  max-width: 60ch;
+}

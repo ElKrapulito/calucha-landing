@@ -1,0 +1,9 @@
+/* Page-level texture: a faint woven dot grid over the green background */
+.page {
+  background-image: radial-gradient(rgb(140 157 89 / 0.22) 2px, transparent 2.5px);
+  background-size: 28px 28px;
+}
+
+.page:focus {
+  outline: none;
+}

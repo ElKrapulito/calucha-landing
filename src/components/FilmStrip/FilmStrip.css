@@ -1,0 +1,33 @@
+.film {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--natural2);
+  border: var(--line-thick) solid var(--text);
+  border-radius: var(--radius-wobble-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.film__sprockets {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  overflow: hidden;
+  padding-inline: var(--space-2);
+}
+
+.film__hole {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 22px;
+  background: var(--primary);
+  border: var(--line) solid var(--text);
+  border-radius: 6px;
+}
+
+.film__frame {
+  background: var(--background);
+  border: var(--line) solid var(--text);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}

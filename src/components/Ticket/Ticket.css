@@ -1,0 +1,58 @@
+/*
+ * The outer element draws the outline + offset shadow with drop-shadow filters,
+ * so the outline follows the notched (masked) shape of the paper.
+ */
+.ticket {
+  --ticket-bg: var(--background);
+  --notch: 14px;
+  display: block;
+  filter:
+    drop-shadow(var(--line) 0 0 var(--text))
+    drop-shadow(calc(var(--line) * -1) 0 0 var(--text))
+    drop-shadow(0 var(--line) 0 var(--text))
+    drop-shadow(0 calc(var(--line) * -1) 0 var(--text))
+    drop-shadow(5px 5px 0 var(--text));
+  transition: transform var(--dur-base) var(--ease-spring);
+}
+
+.ticket--surface { --ticket-bg: var(--background); }
+.ticket--highlight { --ticket-bg: var(--highlight); }
+.ticket--natural1 { --ticket-bg: var(--natural1); }
+.ticket--accent { --ticket-bg: var(--accent); }
+
+.ticket__paper {
+  display: flex;
+  height: 100%;
+  color: var(--text);
+  background: var(--ticket-bg);
+  border-radius: var(--radius-sm);
+  -webkit-mask:
+    radial-gradient(circle var(--notch) at 0 50%, #0000 97%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle var(--notch) at 100% 50%, #0000 97%, #000) right / 51% 100% no-repeat;
+  mask:
+    radial-gradient(circle var(--notch) at 0 50%, #0000 97%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle var(--notch) at 100% 50%, #0000 97%, #000) right / 51% 100% no-repeat;
+}
+
+.ticket__stub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  flex: 0 0 auto;
+  min-width: 5.5rem;
+  padding: var(--space-4) var(--space-3) var(--space-4) var(--space-5);
+  border-right: var(--line) dashed var(--text);
+  text-align: center;
+}
+
+.ticket__body {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-5) var(--space-6) var(--space-5) var(--space-5);
+}
+
+.ticket__stub:empty {
+  display: none;
+}

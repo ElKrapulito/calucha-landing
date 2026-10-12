@@ -1,0 +1,112 @@
+.btn {
+  --btn-bg: var(--highlight);
+  --btn-fg: var(--text);
+  --btn-shadow: var(--shadow-sm);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 48px;
+  padding: var(--space-2) var(--space-5);
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-align: center;
+  text-decoration: none;
+  color: var(--btn-fg);
+  background: var(--btn-bg);
+  border: var(--outline);
+  border-radius: var(--radius-wobble);
+  box-shadow: var(--btn-shadow);
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out),
+    background-color var(--dur-base) var(--ease-out);
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px) rotate(-1deg);
+  box-shadow: 5px 5px 0 var(--text);
+}
+
+.btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 var(--text);
+}
+
+.btn:disabled,
+.btn[aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Variants — every fg/bg pair below is ≥4.5:1 */
+.btn--primary {
+  --btn-bg: var(--highlight);
+  --btn-fg: var(--text);
+}
+
+.btn--primary:hover {
+  --btn-bg: var(--highlight-hover);
+}
+
+.btn--secondary {
+  --btn-bg: var(--natural2);
+  --btn-fg: var(--color-white);
+}
+
+.btn--secondary:hover {
+  --btn-bg: var(--natural2-hover);
+}
+
+.btn--ghost {
+  --btn-bg: var(--background);
+  --btn-fg: var(--text);
+}
+
+.btn--ghost:hover {
+  --btn-bg: var(--background-hover);
+}
+
+.btn--dark {
+  --btn-bg: var(--primary);
+  --btn-fg: var(--background);
+}
+
+.btn--dark:hover {
+  --btn-bg: var(--primary-hover);
+}
+
+/* Sizes */
+.btn--sm {
+  min-height: 44px;
+  padding: var(--space-1) var(--space-4);
+  font-size: var(--fs-base);
+}
+
+.btn--lg {
+  min-height: 56px;
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--fs-lg);
+  --btn-shadow: var(--shadow-md);
+}
+
+.btn--lg:hover {
+  box-shadow: 8px 8px 0 var(--text);
+}
+
+.btn--full {
+  width: 100%;
+}
+
+.btn__icon {
+  display: inline-flex;
+  font-size: 1.25em;
+}

@@ -1,0 +1,41 @@
+.glyph-band {
+  position: relative;
+  overflow: hidden;
+  background: var(--text);
+  border-block: var(--line-thick) solid var(--text);
+  /* Woven aguayo stripes above and below the glyph row */
+  --stripes: linear-gradient(
+    90deg,
+    var(--natural2) 0 14%,
+    var(--highlight) 14% 28%,
+    var(--natural1) 28% 42%,
+    var(--secondary) 42% 56%,
+    var(--accent) 56% 70%,
+    var(--highlight) 70% 84%,
+    var(--natural2) 84% 100%
+  );
+}
+
+.glyph-band::before,
+.glyph-band::after {
+  content: '';
+  display: block;
+  height: 10px;
+  background:
+    repeating-linear-gradient(45deg, transparent 0 6px, rgb(32 43 41 / 0.35) 6px 9px),
+    var(--stripes);
+  background-size: auto, 420px 100%;
+}
+
+.glyph-band__row {
+  display: flex;
+  justify-content: space-around;
+  gap: var(--space-5);
+  padding: var(--space-3) var(--space-4);
+  width: max-content;
+  min-width: 100%;
+}
+
+.glyph-band__glyph {
+  font-size: 2.25rem;
+}

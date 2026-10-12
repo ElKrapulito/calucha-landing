@@ -1,0 +1,72 @@
+.services__grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.services__item {
+  scroll-margin-top: var(--space-7);
+}
+
+.services__item .reveal,
+.services__item .ticket {
+  height: 100%;
+}
+
+.services__glyph {
+  font-size: 3rem;
+  color: var(--text);
+  transition: transform var(--dur-base) var(--ease-spring);
+}
+
+.services__item:hover .services__glyph {
+  transform: rotate(-10deg) scale(1.12);
+}
+
+.services__number {
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  white-space: nowrap;
+}
+
+.services__title {
+  font-size: var(--fs-lg);
+  margin-bottom: var(--space-2);
+}
+
+.services__text {
+  margin-bottom: var(--space-3);
+}
+
+.services__list {
+  display: grid;
+  gap: var(--space-1);
+  padding-left: 1.2em;
+  font-size: var(--fs-sm);
+  list-style: none;
+}
+
+.services__list li {
+  position: relative;
+}
+
+/* Little woven diamond bullet */
+.services__list li::before {
+  content: '';
+  position: absolute;
+  left: -1.1em;
+  top: 0.55em;
+  width: 0.5em;
+  height: 0.5em;
+  background: var(--text);
+  transform: rotate(45deg);
+}
+
+@media (min-width: 52rem) {
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services__item:nth-child(even) {
+    margin-top: var(--space-7);
+  }
+}

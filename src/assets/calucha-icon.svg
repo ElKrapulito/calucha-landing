@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Calucha icon</title>
+  <desc id="desc">A minimalist forest-green calucha-inspired segmented hat emblem.</desc>
+  <g fill="#124E43">
+    <!-- Crown / top opening -->
+    <ellipse cx="256" cy="92" rx="43" ry="13"/>
+    <!-- Upper woven panels -->
+    <path d="M205 99 171 113 132 158Q124 168 133 176L150 190Q157 196 164 188L207 124Z"/>
+    <path d="M215 103 197 130 174 192Q170 202 181 207L214 221Q224 225 230 214L244 130 244 105Z"/>
+    <path d="M268 105 268 132 282 214Q284 225 296 221L329 207Q339 203 334 192L311 130 297 103Z"/>
+    <path d="M307 99 305 124 348 188Q354 196 362 190L379 176Q388 168 380 158L341 113Z"/>
+    <!-- Lower rim and panels -->
+    <path d="M128 198 157 214 150 301Q149 313 160 319L192 338Q203 344 209 332L225 247 244 238 231 337Q230 348 241 351L270 358Q282 360 284 348L292 240 309 247 325 332Q328 344 339 338L371 319Q382 313 381 301L374 214 403 198 405 306Q405 326 388 339L312 394Q256 431 200 394L124 339Q107 326 107 306Z"/>
+    <!-- Side lower panels -->
+    <path d="M112 214 139 231 132 302Q131 311 122 304Q103 287 104 263Z"/>
+    <path d="M400 214 373 231 380 302Q381 311 390 304Q409 287 408 263Z"/>
+  </g>
+</svg>
