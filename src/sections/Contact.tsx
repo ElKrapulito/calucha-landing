@@ -1,18 +1,12 @@
 import { useState, type FocusEvent, type FormEvent } from 'react'
 import { Button, FormField, Glyph, Poster, PosterBand, SectionHeading } from '../components'
+import { useI18n, type Dict } from '../i18n'
 import './Contact.css'
 
 type Fields = 'name' | 'email' | 'service' | 'message'
-type Errors = Partial<Record<Fields, string>>
-
-const serviceOptions = [
-  { value: '', label: 'Elige una opción' },
-  { value: 'estrategia', label: 'Estrategia de marca' },
-  { value: 'contenido', label: 'Contenido y redes' },
-  { value: 'pauta', label: 'Pauta digital' },
-  { value: 'datos', label: 'Datos y analítica' },
-  { value: 'todo', label: 'Un poco de todo' },
-]
+type ErrorKey = keyof Dict['contact']['errors']
+// Store message keys (not text) so visible errors follow a language switch.
+type Errors = Partial<Record<Fields, ErrorKey>>
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -21,14 +15,16 @@ function validate(data: FormData): Errors {
   const name = String(data.get('name') ?? '').trim()
   const email = String(data.get('email') ?? '').trim()
   const message = String(data.get('message') ?? '').trim()
-  if (!name) errors.name = 'Escribe tu nombre para saber cómo llamarte.'
-  if (!email) errors.email = 'Necesitamos un correo para responderte.'
-  else if (!EMAIL_RE.test(email)) errors.email = 'Revisa el correo: debe tener el formato nombre@dominio.com.'
-  if (message.length < 10) errors.message = 'Cuéntanos un poco más (al menos 10 caracteres).'
+  if (!name) errors.name = 'nameRequired'
+  if (!email) errors.email = 'emailRequired'
+  else if (!EMAIL_RE.test(email)) errors.email = 'emailInvalid'
+  if (message.length < 10) errors.message = 'messageShort'
   return errors
 }
 
 export function Contact() {
+  const { t } = useI18n()
+  const c = t.contact
   const [errors, setErrors] = useState<Errors>({})
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle')
   // Re-validate a field on blur only once it already shows an error, so we don't nag while typing.
@@ -61,10 +57,10 @@ export function Contact() {
       <div className="container">
         <SectionHeading
           id="contacto-title"
-          eyebrow="Contacto"
+          eyebrow={c.eyebrow}
           glyph="picaflor"
-          title="¿Armamos algo juntos?"
-          intro="Cuéntanos de tu marca y te respondemos en menos de 48 horas hábiles."
+          title={c.title}
+          intro={c.intro}
         />
 
         <div className="contact__grid">
@@ -72,68 +68,74 @@ export function Contact() {
             <PosterBand tone="surface">
               <form className="contact__form" noValidate onSubmit={handleSubmit} onBlur={handleBlur}>
                 <p className="contact__legend">
-                  Los campos con <span aria-hidden="true">*</span> son obligatorios.
+                  {c.requiredNote}
                 </p>
                 <div className="contact__row">
                   <FormField
-                    label="Nombre"
+                    label={c.fields.name}
                     name="name"
                     autoComplete="name"
                     required
-                    error={errors.name}
+                    error={errors.name && c.errors[errors.name]}
                   />
                   <FormField
-                    label="Correo electrónico"
+                    label={c.fields.email}
                     name="email"
                     type="email"
                     autoComplete="email"
                     inputMode="email"
                     required
-                    error={errors.email}
+                    error={errors.email && c.errors[errors.email]}
                   />
                 </div>
-                <FormField as="select" label="¿Qué necesitas?" name="service" options={serviceOptions} />
+                <FormField
+                  as="select"
+                  label={c.fields.service}
+                  name="service"
+                  options={c.serviceOptions}
+                  optionalText={c.optional}
+                />
                 <FormField
                   as="textarea"
-                  label="Tu mensaje"
+                  label={c.fields.message}
                   name="message"
-                  hint="¿Qué quieres lograr? ¿Para cuándo?"
+                  hint={c.fields.messageHint}
                   required
-                  error={errors.message}
+                  error={errors.message && c.errors[errors.message]}
                 />
                 <div className="contact__submit">
                   <Button type="submit" size="lg" disabled={status === 'sending'} iconEnd={<Glyph name="picaflor" />}>
-                    {status === 'sending' ? 'Enviando…' : 'Enviar mensaje'}
+                    {status === 'sending' ? c.sending : c.submit}
                   </Button>
                   <p className="contact__status" role="status" aria-live="polite">
-                    {status === 'sent' && '¡Gracias! Recibimos tu mensaje y te escribiremos muy pronto.'}
+                    {status === 'sent' && c.sent}
                   </p>
                 </div>
               </form>
             </PosterBand>
           </Poster>
 
-          <aside className="contact__aside" aria-label="Otras formas de contacto">
+          <aside className="contact__aside" aria-label={c.asideLabel}>
             <div className="contact__card">
-              <h3 className="contact__card-title">Escríbenos directo</h3>
+              <h3 className="contact__card-title">{c.directTitle}</h3>
               {/* TODO: replace with real contact details */}
               <ul role="list" className="contact__list">
                 <li>
-                  <span className="contact__label">Correo</span>
+                  <span className="contact__label">{c.labels.email}</span>
                   <a href="mailto:hola@calucha.bo">hola@calucha.bo</a>
                 </li>
                 <li>
-                  <span className="contact__label">WhatsApp</span>
+                  <span className="contact__label">{c.labels.whatsapp}</span>
                   <a href="https://wa.me/59170000000">+591 700 00000</a>
                 </li>
                 <li>
-                  <span className="contact__label">Estudio</span>
-                  La Paz, Bolivia
+                  <span className="contact__label">{c.labels.studio}</span>
+                  {c.studio}
                 </li>
               </ul>
             </div>
             <div className="contact__card contact__card--social">
-              <h3 className="contact__card-title">Síguenos</h3>
+              <h3 className="contact__card-title">{c.socialTitle}</h3>
               <ul role="list" className="contact__social">
                 <li><Button href="https://instagram.com" size="sm" variant="ghost">Instagram</Button></li>
                 <li><Button href="https://tiktok.com" size="sm" variant="ghost">TikTok</Button></li>
@@ -141,9 +143,9 @@ export function Contact() {
               </ul>
             </div>
             <div className="contact__critters" aria-hidden="true">
-              <Glyph name="rana" tone="accent" />
+              <Glyph name="mono" tone="accent" />
               <Glyph name="cactus" tone="highlight" />
-              <Glyph name="choclo" tone="natural1" />
+              <Glyph name="tucan" tone="natural1" />
             </div>
           </aside>
         </div>

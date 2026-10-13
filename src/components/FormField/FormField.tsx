@@ -6,6 +6,8 @@ interface CommonProps {
   hint?: string
   error?: string
   required?: boolean
+  /** Text shown next to optional fields' labels (localise it). */
+  optionalText?: string
 }
 
 type InputFieldProps = CommonProps & { as?: 'input' } & Omit<InputHTMLAttributes<HTMLInputElement>, 'required'>
@@ -22,7 +24,7 @@ export type FormFieldProps = InputFieldProps | TextareaFieldProps | SelectFieldP
  * aria-describedby / aria-invalid for screen readers.
  */
 export function FormField(props: FormFieldProps) {
-  const { label, hint, error, required, className, id: idProp, ...rest } = props
+  const { label, hint, error, required, optionalText = '(opcional)', className, id: idProp, ...rest } = props
   const autoId = useId()
   const id = idProp ?? autoId
   const hintId = hint ? `${id}-hint` : undefined
@@ -69,7 +71,7 @@ export function FormField(props: FormFieldProps) {
             {' '}*
           </span>
         ) : (
-          <span className="field__optional"> (opcional)</span>
+          <span className="field__optional"> {optionalText}</span>
         )}
       </label>
       {hint && (

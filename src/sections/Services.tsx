@@ -1,94 +1,70 @@
 import { Glyph, Reveal, SectionHeading, Ticket, type GlyphName } from '../components'
+import { useI18n, type Dict } from '../i18n'
 import './Services.css'
 
+type ServiceKey = keyof Dict['services']['items']
+type Pillar = keyof Dict['services']['pillars']
+
 interface Service {
-  id: string
-  number: string
-  title: string
+  key: ServiceKey
+  pillar: Pillar
   glyph: GlyphName
   tone: 'surface' | 'highlight' | 'natural1' | 'accent'
-  description: string
-  deliverables: string[]
 }
 
 const services: Service[] = [
-  {
-    id: 'servicio-estrategia',
-    number: '01',
-    title: 'Estrategia de marca',
-    glyph: 'condor',
-    tone: 'highlight',
-    description: 'Encontramos la voz de tu marca y la convertimos en un plan con objetivos que se pueden medir.',
-    deliverables: ['Investigación de audiencia', 'Posicionamiento y tono', 'Plan de comunicación'],
-  },
-  {
-    id: 'servicio-contenido',
-    number: '02',
-    title: 'Contenido y redes',
-    glyph: 'llama',
-    tone: 'surface',
-    description: 'Reels, carruseles, fotografía y copy con identidad local que la gente quiere compartir.',
-    deliverables: ['Calendario editorial', 'Producción foto y video', 'Community management'],
-  },
-  {
-    id: 'servicio-pauta',
-    number: '03',
-    title: 'Pauta digital',
-    glyph: 'picaflor',
-    tone: 'natural1',
-    description: 'Campañas en Meta, Google y TikTok que optimizamos semana a semana para cuidar cada boliviano invertido.',
-    deliverables: ['Segmentación y pruebas A/B', 'Optimización continua', 'Reportes de retorno'],
-  },
-  {
-    id: 'servicio-datos',
-    number: '04',
-    title: 'Datos y analítica',
-    glyph: 'chakana',
-    tone: 'accent',
-    description: 'Dashboards, social listening y reportes que traducen los números en decisiones claras.',
-    deliverables: ['Tableros a medida', 'Escucha social', 'Insights mensuales'],
-  },
+  { key: 'estrategia', pillar: 'creative', glyph: 'condor', tone: 'highlight' },
+  { key: 'contenido', pillar: 'creative', glyph: 'llama', tone: 'surface' },
+  { key: 'pauta', pillar: 'creative', glyph: 'picaflor', tone: 'natural1' },
+  { key: 'datos', pillar: 'data', glyph: 'chakana', tone: 'accent' },
+  { key: 'desarrollo', pillar: 'tech', glyph: 'tucan', tone: 'surface' },
+  { key: 'automatizacion', pillar: 'tech', glyph: 'sicuri', tone: 'highlight' },
 ]
 
 export function Services() {
+  const { t } = useI18n()
+  const s = t.services
+
   return (
     <section id="servicios" className="section services surface-dark" aria-labelledby="servicios-title">
       <div className="container">
-        <SectionHeading
-          id="servicios-title"
-          eyebrow="Lo que hacemos"
-          glyph="kantuta"
-          title="Servicios con raíz y con método"
-          intro="Cuatro boletos de entrada para hacer crecer tu marca. Puedes tomar uno o el paquete completo."
-        />
+        <SectionHeading id="servicios-title" eyebrow={s.eyebrow} glyph="kantuta" title={s.title} intro={s.intro} />
 
         <ul role="list" className="services__grid">
-          {services.map((service, i) => (
-            <li key={service.id} id={service.id} className="services__item">
-              <Reveal delay={i * 80}>
-                <Ticket
-                  as="article"
-                  tone={service.tone}
-                  stub={
-                    <>
-                      <Glyph name={service.glyph} className="services__glyph" />
-                      <span className="services__number">
-                        <span className="visually-hidden">Servicio </span>N.º {service.number}
-                      </span>
-                    </>
-                  }
-                >
-                  <h3 className="services__title">{service.title}</h3>
-                  <p className="services__text">{service.description}</p>
-                  <ul className="services__list">
-                    {service.deliverables.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </Ticket>
-              </Reveal>
-            </li>
-          ))}
+          {services.map((service, i) => {
+            const item = s.items[service.key]
+            return (
+              <li key={service.key} id={`servicio-${service.key}`} className="services__item">
+                <Reveal delay={(i % 2) * 80}>
+                  <Ticket
+                    as="article"
+                    tone={service.tone}
+                    stub={
+                      <>
+                        <Glyph name={service.glyph} className="services__glyph" />
+                        <span className="services__number">
+                          <span className="visually-hidden">{s.numberLabel} </span>
+                          {s.numberPrefix} {String(i + 1).padStart(2, '0')}
+                        </span>
+                      </>
+                    }
+                  >
+                    <p className={`services__pillar services__pillar--${service.pillar}`}>
+                      <span className="visually-hidden">{s.pillarLabel}: </span>
+                      {s.pillars[service.pillar]}
+                    </p>
+                    <h3 className="services__title">{item.title}</h3>
+                    <p className="services__text">{item.description}</p>
+                    <ul className="services__list">
+                      {item.deliverables.map((d) => (
+                        <li key={d}>{d}</li>
+                      ))}
+                    </ul>
+                  </Ticket>
+                </Reveal>
+              </li>
+            )
+          })}
         </ul>
       </div>
     </section>

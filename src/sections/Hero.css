@@ -1,12 +1,12 @@
 .hero__grid {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(var(--space-7), 5vw, var(--space-8));
   align-items: start;
 }
 
 .hero__band-top {
   padding-top: var(--space-7);
-  padding-right: clamp(var(--space-8), 18%, 9rem);
 }
 
 .hero__sun {
@@ -27,13 +27,16 @@
 }
 
 .hero__condor {
+  display: none;
   position: absolute;
-  right: clamp(var(--space-5), 12%, 7rem);
-  bottom: var(--space-4);
-  font-size: clamp(2.5rem, 6vw, 4rem);
+  top: clamp(5rem, 13vw, 8.5rem);
+  right: var(--space-5);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
 }
 
 .hero__eyebrow {
+  /* Leave room for the sun in the corner */
+  padding-right: clamp(4.5rem, 18%, 8rem);
   margin-bottom: var(--space-3);
   font-size: var(--fs-sm);
   letter-spacing: 0.06em;
@@ -41,15 +44,30 @@
 }
 
 .hero__title {
-  font-size: var(--fs-2xl);
+  font-size: clamp(2.3rem, 1.5rem + 3vw, 4rem);
   line-height: 1.02;
   color: var(--primary);
   text-shadow: 3px 3px 0 var(--background);
 }
 
-.hero__title-accent {
+.hero__line {
   display: block;
+}
+
+.hero__line--b {
   color: var(--text);
+}
+
+/* Third line: tech flavour — sits on a dark tag, like a code highlight */
+.hero__line--c {
+  width: fit-content;
+  margin-top: 0.12em;
+  padding: 0 0.2em 0.06em;
+  color: var(--highlight);
+  text-shadow: none;
+  background: var(--text);
+  border-radius: var(--radius-wobble);
+  transform: rotate(-1.5deg);
 }
 
 .hero__band-mid {
@@ -76,7 +94,7 @@
 }
 
 .hero__actions > .btn {
-  flex: 1 1 14rem;
+  flex: 1 1 auto;
 }
 
 .hero__place {
@@ -104,7 +122,7 @@
 
 .hero__passes {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 5.75rem), 1fr));
   gap: var(--space-2);
 }
 
@@ -143,7 +161,42 @@
   color: var(--primary);
 }
 
+.hero__scene {
+  display: none;
+}
+
+/* The condor glides beside the title only when there is room for it */
+@media (min-width: 48rem) {
+  .hero__band-top {
+    padding-right: clamp(var(--space-8), 18%, 9rem);
+  }
+
+  .hero__eyebrow {
+    padding-right: 0;
+  }
+
+  .hero__condor {
+    display: block;
+  }
+}
+
 @media (min-width: 64rem) {
+  .hero__scene {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding-top: var(--space-4);
+    border-bottom: var(--line-thick) dashed var(--accent);
+  }
+
+  .hero__scene-glyph {
+    font-size: 4.5rem;
+  }
+
+  .hero__scene-glyph--mono {
+    font-size: 3.5rem;
+  }
+
   .hero__grid {
     grid-template-columns: 7fr 5fr;
   }

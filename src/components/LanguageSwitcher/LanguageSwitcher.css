@@ -1,0 +1,39 @@
+.lang-switch {
+  display: inline-flex;
+  padding: 3px;
+  background: var(--background);
+  border: var(--outline);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+}
+
+.lang-switch__option {
+  min-width: 44px;
+  min-height: 40px;
+  padding: 0 var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  color: var(--text);
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  touch-action: manipulation;
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.lang-switch__option:hover {
+  background: var(--highlight);
+}
+
+/* Selected state uses fill + colour change, not colour alone (also exposed via aria-pressed) */
+.lang-switch__option[aria-pressed='true'] {
+  color: var(--background);
+  background: var(--primary);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+.lang-switch__option:focus-visible {
+  outline-offset: 1px;
+}

@@ -1,0 +1,70 @@
+.browser {
+  overflow: hidden;
+  background: var(--background);
+  border: var(--line-thick) solid var(--text);
+  border-radius: var(--radius-wobble-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.browser__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--highlight);
+  border-bottom: var(--line-thick) solid var(--text);
+}
+
+.browser__dots {
+  display: inline-flex;
+  gap: var(--space-2);
+}
+
+.browser__dot {
+  width: 16px;
+  height: 16px;
+  border: var(--line) solid var(--text);
+  border-radius: 50%;
+}
+
+.browser__dot--a { background: var(--natural2); }
+.browser__dot--b { background: var(--natural1); }
+.browser__dot--c { background: var(--accent); }
+
+.browser__url {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  padding: var(--space-1) var(--space-4);
+  font-size: var(--fs-sm);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background: var(--background);
+  border: var(--line) solid var(--text);
+  border-radius: 999px;
+}
+
+/* ---------- Code snippet (dark editor) ---------- */
+.code {
+  margin: 0;
+  padding: var(--space-5);
+  /* Wrap instead of scrolling sideways — no nested scroll areas on phones */
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-size: clamp(0.85rem, 0.78rem + 0.3vw, 1rem);
+  line-height: 1.7;
+  color: var(--background);       /* 11.9:1 */
+  background: var(--text);
+  tab-size: 2;
+}
+
+.code__line {
+  display: block;
+  min-height: 1.7em;
+}
+
+.code__kw { color: var(--natural1); }   /* 4.5:1 */
+.code__str { color: var(--highlight); } /* 7.2:1 */
+.code__fn { color: var(--accent); }     /* 4.9:1 */
+.code__comment { color: var(--accent); font-style: italic; }

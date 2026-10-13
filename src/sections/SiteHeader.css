@@ -57,6 +57,7 @@
 }
 
 .brand__tag {
+  display: none;
   margin-top: var(--space-1);
   font-size: var(--fs-sm);
   letter-spacing: 0.08em;
@@ -67,6 +68,12 @@
   display: none;
   gap: var(--space-4);
   font-size: 2.25rem;
+}
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
 }
 
 .site-header__cta {
@@ -204,8 +211,75 @@
   }
 }
 
+@media (min-width: 26rem) {
+  .brand__tag {
+    display: block;
+  }
+}
+
 @media (min-width: 64rem) {
   .site-header__glyphs {
     display: flex;
+  }
+}
+
+/* Very narrow phones: compact bar, icon-only menu button (label stays for screen readers) */
+@media (max-width: 25.99rem) {
+  .site-header__bar {
+    gap: var(--space-2);
+  }
+
+  .brand {
+    gap: var(--space-2);
+  }
+
+  .brand__icon {
+    width: 40px;
+  }
+
+  .brand__name {
+    font-size: 1.45rem;
+  }
+
+  .site-header__actions {
+    gap: var(--space-2);
+  }
+
+  .site-header .lang-switch__option {
+    min-width: 40px;
+    padding-inline: var(--space-2);
+  }
+
+  .menu-toggle {
+    padding-inline: var(--space-3);
+  }
+
+  .menu-toggle__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 21.5rem) {
+  .brand__icon {
+    width: 34px;
+  }
+
+  .brand__name {
+    font-size: 1.15rem;
+  }
+
+  .menu-toggle {
+    min-width: 44px;
+    padding-inline: var(--space-2);
+  }
+
+  .site-header .lang-switch__option {
+    min-width: 36px;
+    padding-inline: var(--space-1);
   }
 }

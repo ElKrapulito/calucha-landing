@@ -1,20 +1,17 @@
-import { Button, Glyph, Poster, PosterBand, StatBoard, Ticket, type Stat } from '../components'
+import { Button, Glyph, Poster, PosterBand, StatBoard, Ticket, type GlyphName } from '../components'
+import { useI18n } from '../i18n'
 import './Hero.css'
 
-const quickLinks = [
-  { href: '#servicio-estrategia', label: 'Estrategia', glyph: 'condor' },
-  { href: '#servicio-contenido', label: 'Contenido', glyph: 'llama' },
-  { href: '#servicio-datos', label: 'Datos', glyph: 'chakana' },
-] as const
-
-// TODO: replace with real agency figures
-const stats: Stat[] = [
-  { value: '+80', label: 'marcas acompañadas' },
-  { value: '12M', label: 'personas alcanzadas' },
-  { value: '4.2x', label: 'más interacción' },
+const passes: { key: 'creativo' | 'datos' | 'software'; href: string; glyph: GlyphName }[] = [
+  { key: 'creativo', href: '#servicio-estrategia', glyph: 'condor' },
+  { key: 'datos', href: '#servicio-datos', glyph: 'chakana' },
+  { key: 'software', href: '#software', glyph: 'tucan' },
 ]
 
 export function Hero() {
+  const { t } = useI18n()
+  const h = t.hero
+
   return (
     <section id="inicio" className="hero section surface-dark" aria-labelledby="hero-title">
       <div className="container hero__grid">
@@ -22,54 +19,61 @@ export function Hero() {
           <PosterBand tone="highlight" className="hero__band-top">
             <Glyph name="inti" tone="natural2" className="hero__sun" />
             <Glyph name="condor" tone="primary" className="hero__condor" />
-            <p className="hero__eyebrow">Agencia de marketing y contenido · Hecho en Bolivia</p>
+            <p className="hero__eyebrow">{h.eyebrow}</p>
             <h1 id="hero-title" className="hero__title">
-              Contenido con sabor, <span className="hero__title-accent">decisiones con datos</span>
+              <span className="hero__line hero__line--a">{h.titleA}</span>{' '}
+              <span className="hero__line hero__line--b">{h.titleB}</span>{' '}
+              <span className="hero__line hero__line--c">{h.titleC}</span>
             </h1>
           </PosterBand>
 
           <PosterBand tone="accent" className="hero__band-mid">
-            <p className="hero__lead">
-              Somos un hub creativo boliviano que mezcla storytelling, diseño y analítica para que tu marca
-              conecte de verdad: con raíces locales y alcance sin fronteras.
-            </p>
+            <p className="hero__lead">{h.lead}</p>
             <div className="hero__flora" aria-hidden="true">
               <Glyph name="kantuta" tone="natural2" />
               <Glyph name="llama" tone="primary" />
-              <Glyph name="patuju" tone="natural2" />
+              <Glyph name="paraba" tone="natural2" />
+              <Glyph name="hoja" tone="primary" />
             </div>
           </PosterBand>
 
           <PosterBand tone="surface" className="hero__band-cta">
             <div className="hero__actions">
               <Button href="#contacto" size="lg">
-                Agenda una charla
+                {h.ctaPrimary}
               </Button>
               <Button href="#servicios" variant="secondary" size="lg">
-                Ver servicios
+                {h.ctaSecondary}
               </Button>
             </div>
-            <p className="hero__place">La Paz · Cochabamba · Santa Cruz · online</p>
+            <p className="hero__place">{h.places}</p>
           </PosterBand>
         </Poster>
 
         <div className="hero__side">
           <Ticket tone="surface" className="hero__ticket">
-            <p className="hero__ticket-title">¡Agenda abierta!</p>
-            <p className="hero__ticket-text">Elige por dónde empezar tu próxima campaña:</p>
+            <p className="hero__ticket-title">{h.ticketTitle}</p>
+            <p className="hero__ticket-text">{h.ticketText}</p>
             <ul role="list" className="hero__passes">
-              {quickLinks.map((link) => (
-                <li key={link.href}>
-                  <a href={link.href} className="hero__pass">
-                    <Glyph name={link.glyph} className="hero__pass-glyph" />
-                    {link.label}
+              {passes.map((pass) => (
+                <li key={pass.key}>
+                  <a href={pass.href} className="hero__pass">
+                    <Glyph name={pass.glyph} className="hero__pass-glyph" />
+                    {h.passes[pass.key]}
                   </a>
                 </li>
               ))}
             </ul>
           </Ticket>
 
-          <StatBoard label="Calucha en números" stats={stats} />
+          <StatBoard label={h.statsLabel} stats={h.stats} />
+
+          <div className="hero__scene" aria-hidden="true">
+            <Glyph name="mono" tone="highlight" className="hero__scene-glyph hero__scene-glyph--mono" />
+            <Glyph name="jaguar" tone="highlight" className="hero__scene-glyph" />
+            <Glyph name="victoria" tone="natural1" className="hero__scene-glyph" />
+            <Glyph name="bufeo" tone="natural1" className="hero__scene-glyph" />
+          </div>
         </div>
       </div>
     </section>

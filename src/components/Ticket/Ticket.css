@@ -56,3 +56,14 @@
 .ticket__stub:empty {
   display: none;
 }
+
+@media (max-width: 30rem) {
+  .ticket__stub {
+    min-width: 4.25rem;
+    padding: var(--space-4) var(--space-2) var(--space-4) var(--space-4);
+  }
+
+  .ticket__body {
+    padding: var(--space-4) var(--space-5) var(--space-4) var(--space-4);
+  }
+}

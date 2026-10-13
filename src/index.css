@@ -158,6 +158,15 @@ p {
   text-wrap: pretty;
 }
 
+/* Long Spanish/English words in display type can't overflow narrow phones */
+@media (max-width: 30rem) {
+  h1,
+  h2,
+  h3 {
+    hyphens: auto;
+  }
+}
+
 a {
   color: inherit;
   text-decoration-thickness: 2px;

@@ -1,6 +1,7 @@
 export { SiteHeader } from './SiteHeader'
 export { Hero } from './Hero'
 export { Services } from './Services'
+export { Software } from './Software'
 export { Process } from './Process'
 export { Work } from './Work'
 export { Manifesto } from './Manifesto'

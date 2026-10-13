@@ -160,6 +160,156 @@ export const glyphs = {
       <path d="m4 48 7-6 7 6 7-6 7 6 7-6 7 6 7-6 7 6" />
     </g>
   ),
+
+  /* ---------- Amazonía (Beni, Pando, Madidi) ---------- */
+
+  /** Paraba barba azul — blue-throated macaw, endemic to the Beni savannas. */
+  paraba: (
+    <>
+      <rect x="10" y="42" width="44" height="4" rx="2" />
+      <path d="m25 37-8 26h6l9-23z" />
+      <ellipse cx="31" cy="29" rx="9" ry="13" transform="rotate(18 31 29)" />
+      <path fillRule="evenodd" d="M36 6a8 8 0 1 1 0 16 8 8 0 1 1 0-16zm1.5 4.5a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 1 0 0-4.4z" />
+      <path d="M42 9q9-1 9 9-2-3-7-3z" />
+    </>
+  ),
+  jaguar: (
+    <>
+      <path
+        fillRule="evenodd"
+        d="M20 22h26a9 9 0 0 1 0 18H20a9 9 0 0 1 0-18zm4 5a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 1 0 0-5.2zm9 4a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 1 0 0-5.2zm6-7a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 1 0 0-5.2z"
+      />
+      <path fillRule="evenodd" d="M52 14a9 9 0 1 1 0 18 9 9 0 1 1 0-18zm2 5a2 2 0 1 0 0 4 2 2 0 1 0 0-4z" />
+      <circle cx="47" cy="14" r="3.2" />
+      <circle cx="56" cy="13" r="3.2" />
+      <rect x="13" y="34" width="5.5" height="22" rx="2" />
+      <rect x="21" y="34" width="5.5" height="22" rx="2" />
+      <rect x="38" y="34" width="5.5" height="22" rx="2" />
+      <rect x="46" y="34" width="5.5" height="22" rx="2" />
+      <path d="M12 28Q3 30 4 44q1 7 7 5" fill="none" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round" />
+    </>
+  ),
+  /** Bufeo — Bolivian pink river dolphin. */
+  bufeo: (
+    <>
+      <path
+        fillRule="evenodd"
+        d="M3 32q7-5 15-4 7-9 19-9 13 0 19 10l5-6v18l-6-5q-6 9-19 9-11 0-17-8-9 1-16-5zm19-3a2 2 0 1 0 0 4 2 2 0 1 0 0-4z"
+      />
+      <path d="m33 20 4-7 5 8z" />
+      <path d="m6 54 6-5 6 5 6-5 6 5 6-5 6 5 6-5 6 5" fill="none" stroke="currentColor" strokeWidth="3.5" />
+    </>
+  ),
+  tucan: (
+    <>
+      <rect x="6" y="46" width="48" height="4" rx="2" />
+      <path d="m19 46-5 16h6l6-14z" />
+      <ellipse cx="25" cy="34" rx="10" ry="14" />
+      <path fillRule="evenodd" d="M28 10a8 8 0 1 1 0 16 8 8 0 1 1 0-16zm1 4.5a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 1 0 0-4.4z" />
+      <path d="M35 13q19-3 27 9-10 3-27 0z" />
+    </>
+  ),
+  mono: (
+    <>
+      <path fillRule="evenodd" d="M32 4a9 9 0 1 1 0 18 9 9 0 1 1 0-18zm-3.5 7a2 2 0 1 0 0 4 2 2 0 1 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 1 0 0-4z" />
+      <circle cx="22" cy="13" r="3.5" />
+      <circle cx="42" cy="13" r="3.5" />
+      <ellipse cx="32" cy="36" rx="10" ry="13" />
+      <g fill="none" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round">
+        <path d="M24 28q-9 8-7 19" />
+        <path d="M40 28q9 8 7 19" />
+        <path d="M41 46q15 2 15-10 0-8-7-8-5 0-5 5 0 4 4 4" />
+      </g>
+      <ellipse cx="25" cy="54" rx="6" ry="4" />
+      <ellipse cx="39" cy="54" rx="6" ry="4" />
+    </>
+  ),
+  perezoso: (
+    <>
+      <rect x="2" y="6" width="60" height="4" rx="2" />
+      <g fill="none" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round">
+        <path d="m18 26-3-15" />
+        <path d="m26 22-1-11" />
+        <path d="m38 22 1-11" />
+        <path d="m46 26 3-15" />
+      </g>
+      <ellipse cx="32" cy="28" rx="17" ry="9" />
+      <path fillRule="evenodd" d="M46 30a8 8 0 1 1 0 16 8 8 0 1 1 0-16zm-4 6a2 1.4 0 1 0 0 2.8 2 1.4 0 1 0 0-2.8zm8 0a2 1.4 0 1 0 0 2.8 2 1.4 0 1 0 0-2.8z" />
+    </>
+  ),
+  /** Lagarto / caimán del Beni. */
+  caiman: (
+    <>
+      <path d="M2 30q14 2 22 0h18l8-3q10-1 12 3 1 4-5 5l-15 1H24q-10 1-22-6z" />
+      <path d="m16 31 2-5 2 5zm7-1 2-5 2 5zm7 0 2-5 2 5zm7 0 2-5 2 5z" />
+      <circle cx="50" cy="26" r="3" />
+      <rect x="20" y="34" width="4.5" height="10" rx="2" />
+      <rect x="36" y="34" width="4.5" height="10" rx="2" />
+      <path d="m6 54 6-5 6 5 6-5 6 5 6-5 6 5 6-5 6 5" fill="none" stroke="currentColor" strokeWidth="3.5" />
+    </>
+  ),
+  /** Sicurí — anaconda. */
+  sicuri: (
+    <>
+      <path
+        d="M6 54q0-14 14-14h16q12 0 12-11t-12-11H24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="8"
+        strokeLinecap="round"
+      />
+      <ellipse cx="20" cy="18" rx="8" ry="6" />
+      <path d="M12 18H5l-2-3m2 3-2 3" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </>
+  ),
+  /** Victoria boliviana — giant water lily described from the Llanos de Moxos. */
+  victoria: (
+    <>
+      <path d="M2 42q30 10 60 0v-8h-5v4q-25 8-50 0v-4H2z" />
+      <path d="M32 39q-15-3-18-17 9 3 12 8-1-12 6-19 7 7 6 19 3-5 12-8-3 14-18 17z" />
+      <g fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round">
+        <path d="M8 54h48" />
+        <path d="M16 61h32" />
+      </g>
+    </>
+  ),
+  /** Castaña — Brazil-nut pod from Pando. */
+  castana: (
+    <>
+      <rect x="29" y="4" width="6" height="10" rx="2" />
+      <circle cx="32" cy="36" r="20" fill="none" stroke="currentColor" strokeWidth="6" />
+      {[0, 72, 144, 216, 288].map((angle) => (
+        <path key={angle} d="M32 34q-5-9 0-16 5 7 0 16z" transform={`rotate(${angle} 32 36)`} />
+      ))}
+    </>
+  ),
+  cacao: (
+    <>
+      <rect x="30" y="2" width="4" height="8" rx="2" />
+      <g fill="none" stroke="currentColor" strokeLinecap="round">
+        <path d="M32 9q17 10 17 26T32 62Q15 52 15 35T32 9z" strokeWidth="4.5" />
+        <path d="M32 14v43" strokeWidth="3" />
+        <path d="M24 20q-3 15 0 32M40 20q3 15 0 32" strokeWidth="3" />
+      </g>
+    </>
+  ),
+  mariposa: (
+    <>
+      <path d="M31 30Q14 2 4 14q-2 14 27 18z" />
+      <path d="M33 30q17-28 27-16 2 14-27 18z" />
+      <path d="M31 34q-21 2-17 18 10 4 17-16z" />
+      <path d="M33 34q21 2 17 18-10 4-17-16z" />
+      <rect x="30.5" y="20" width="3" height="30" rx="1.5" />
+      <path d="M31 21q-4-8-8-10m10 10q4-8 8-10" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </>
+  ),
+  /** Large rainforest leaf with cut-out veins. */
+  hoja: (
+    <path
+      fillRule="evenodd"
+      d="M32 2q28 18 2 60h-4Q4 20 32 2zm-1 10v44h2V12zm2 12 9-6 1 1.6-10 6.4zm0 12 11-7 1 1.6-12 7.4zm-2-12-9-6-1 1.6 10 6.4zm0 12-11-7-1 1.6 12 7.4z"
+    />
+  ),
 } satisfies Record<string, ReactNode>
 
 export type GlyphName = keyof typeof glyphs
